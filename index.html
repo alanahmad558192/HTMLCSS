@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loader Example</title>
+<style>
+/* Centering styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2; /* Background color set to grey */
+}
+
+/* CSS styles for the loader */
+.loader {
+  width: 50px; /* Sets the width of the loader */
+  aspect-ratio: 1; /* Maintains a 1:1 aspect ratio (square) */
+  display: grid; /* Uses CSS Grid for layout */
+  border: 4px solid #0000; /* Sets the border of the loader */
+  border-radius: 50%; /* Makes the loader a circle by setting border-radius to 50% */
+  border-color: #a7a8e6 #0000; /* Sets the border colors */
+  animation: l16 1s infinite linear; /* Applies the animation named 'l16' */
+}
+
+.loader::before,
+.loader::after {    
+  content: ""; /* Adds content before and after the loader element */
+  grid-area: 1/1; /* Specifies the grid area */
+  margin: 2px; /* Adds margin around the loader */
+  border: inherit; /* Inherits border properties from the loader */
+  border-radius: 50%; /* Makes the before and after elements circles */
+}
+
+.loader::before {
+  border-color: #f03355 #0000; /* Sets the border colors for the before element */
+  animation: inherit; /* Inherits animation properties */
+  animation-duration: .5s; /* Sets the duration of the animation */
+  animation-direction: reverse; /* Sets the direction of the animation */
+}
+
+.loader::after {
+  margin: 8px; /* Adds margin for the after element */
+}
+
+@keyframes l16 { 
+  100% { transform: rotate(1turn) } /* Defines the keyframes for the animation, rotating the loader */
+}
+
+</style>
+</head>
+<body>
+  <!-- The loader element -->
+  <div class="loader"></div>
+</body>
+</html>
