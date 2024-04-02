@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Styled Button</title>
+<style>
+  /* Centering styles */
+  html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f2f2; /* Background color set to grey */
+  }
+
+  /* CSS styles for the button */
+  button {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background-color: #ff5f5f; /* Button background color */
+    padding: 0;
+    font-size: 18px; /* Adjust font size as needed */
+    padding: 12px 24px; /* Adjust padding as needed */
+    color: #fff; /* Button text color */
+    font-weight: bold; /* Make the font bold */
+    border-radius: 5px; /* Adjust border radius as needed */
+    border: 2px solid #ff5f5f; /* Border color */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a box shadow */
+    overflow: hidden; /* Hide overflow to prevent particles from overflowing */
+    position: relative; /* Relative positioning for absolute positioned particles */
+    z-index: 1; /* Ensure button content appears above particles */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s; /* Add transition effects */
+  }
+
+  button:hover {
+    background-color: #e94d4d; /* Adjust hover background color as needed */
+    color: #fff; /* Adjust hover text color as needed */
+    border-color: #e94d4d; /* Adjust hover border color as needed */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Adjust hover box shadow */
+  }
+
+  button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    pointer-events: none; /* Ensure the pseudo-element doesn't interfere with button click */
+    opacity: 0; /* Initially hide the sparkling effect */
+    transition: opacity 0.3s; /* Add transition effect for smooth appearance */
+  }
+
+  button:hover::after {
+    opacity: 1; /* Show the sparkling effect when hovering over the button */
+  }
+
+  button::before {
+    content: '!'; /* Exclamation mark */
+    position: absolute;
+    bottom: 5px; /* Adjust the bottom distance as needed */
+    right: 5px; /* Adjust the right distance as needed */
+    font-size: 30px; /* Adjust symbol size as needed */
+    opacity: 0;
+    animation: sparkle 1.5s linear infinite;
+  }
+
+  @keyframes sparkle {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1);
+    }
+  }
+
+  /* Colorful stars */
+  button:hover::before {
+    opacity: 1; /* Show the sparkling effect when hovering over the button */
+  }
+
+  button::before {
+    background-image: linear-gradient(to bottom, #ffafaf, #ffd6a5, #ffeb95, #d7f5ad, #a5f3d6, #a5d6f3, #adb6ff, #d6a5ff, #ff95eb, #ffadcf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+</style>
+</head>
+<body>
+<button>Click Me</button>
+</body>
+</html>
